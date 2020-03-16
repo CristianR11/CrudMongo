@@ -19,6 +19,7 @@ module.exports = function(app){
 	app.use(bodyParser.json());
 
 	const options = {
+		useMongoClient: true,
 		poolSize: 1,
 		reconnectTries: 1
 	};
