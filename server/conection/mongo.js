@@ -20,6 +20,7 @@ module.exports = function(app){
 
 	const options = {
 		useNewUrlParser: true,
+		useUnifiedTopology: true,
 		poolSize: 1,
 		reconnectTries: 1
 	};
