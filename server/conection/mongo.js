@@ -7,7 +7,7 @@ const MongoStore = require('connect-mongo')(session);
 
 // user set constiables
 // user set constiables
-const mongoURL = process.env.MONGO_URL || '127.0.0.1';
+const mongoURL = process.env.MONGO_URL || 'localhost';
 const mongoUser = process.env.MONGO_USER || 'scaicedo';
 const mongoPass = process.env.MONGO_PASS || 'jasacr0327';
 const mongoDBName = process.env.MONGO_DB_NAME || 'sampledb';
@@ -19,7 +19,7 @@ module.exports = function(app){
 	app.use(bodyParser.json());
 
 	const options = {
-		useMongoClient: true,
+		useNewUrlParser: true,
 		poolSize: 1,
 		reconnectTries: 1
 	};
