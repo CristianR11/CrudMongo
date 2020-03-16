@@ -26,7 +26,7 @@ module.exports = function(app){
 	// connect to the MongoDB
 	let mongoConnect = 'mongodb://127.0.0.1:27017';
 	if (mongoURL !== '' && mongoUser !== '' && mongoPass != '') {
-  		mongoConnect = `mongodb://${mongoUser}:${mongoPass}@${mongoURL}/${mongoDBName}`;
+  		mongoConnect = `mongodb://${mongoUser}:${mongoPass}@${mongoURL}:27017/${mongoDBName}`;
 	} else if (mongoURL !== '') {
   		mongoConnect = `mongodb://${mongoURL}/${mongoDBName}`;
 	}
