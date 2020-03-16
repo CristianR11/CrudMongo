@@ -18,7 +18,8 @@ app.get("/api/customers/:id", function(req, res, next) {
     });
 });
   
-app.post("/api/customers", function(req, res, next) {  
+app.post("/api/customers", function(req, res, next) { 
+    console.log(req.body); 
     Movie.create(req.body, function(err, post) {
       if (err) return next(err);
       res.json(post);
