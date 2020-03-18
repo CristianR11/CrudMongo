@@ -13,7 +13,7 @@ const conection = require('./conection/mongo');
 conection(app);
 router(app);
 
-app.use(morgan());
+//app.use(morgan());
 app.use(cors());
 
 app.use(function(req, res, next) {
