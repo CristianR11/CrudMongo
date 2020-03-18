@@ -16,20 +16,20 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 
 ### 1. Crear un nuevo proyecto en el cluster de Openshift
 
-**a.**	Una vez abierta la consola web de Openshift
-  
-  
- ```
- mkdir terraform && cd terraform
-```
+**a.**	Una vez abierta la consola web de Openshift presione "Create Project" y llene los campos con el nombre y la descripción del proyecto.
 
-**b.**  [Descargue la versión 0.12.19 de Terraform CLI en su máquina local.](https://releases.hashicorp.com/terraform/)
+<p align="center">
+<img width="278" alt="Annotation 2020-03-18 181640" src="https://user-images.githubusercontent.com/40369712/77016805-c57aad80-6946-11ea-83b3-c043412dcba1.png">
+</p>
 
-El archivo de instalación quedara alojado en la carpeta de descargas que tenga configurada por defecto, por lo que debe entrar a la c arpeta de descargas para extraer el archivo.
+**b.**  Una vez creado el proyecto, seleccionelo y presione "Browse Catalog"
 
-```
-cd $HOME/Downloads
-```
+<p align="center">
+<img width="790" alt="img2" src="https://user-images.githubusercontent.com/40369712/77017187-c3651e80-6947-11ea-9e32-e45080035016.png">
+</p>
+
+Una vez detro del catalogo podra vez todas las opciones disponibles para el despliegue de aplicaciones y servicios, dentro de estas encontrara MongoDB y MongoDB(Ephemeral) que corresponden a los servicios de datos persistentes y efímeros, seleccione el servicio MongoDB.
+
 **c.**	Extraiga el paquete Terraform y copie el archivo binario en su directorio terraform.
 
 ```
