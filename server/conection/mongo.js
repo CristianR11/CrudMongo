@@ -7,9 +7,9 @@ const MongoStore = require('connect-mongo')(session);
 
 // user set constiables
 // user set constiables
-const mongoURL = process.env.MONGO_URL || '172.30.125.112';
-const mongoUser = process.env.MONGO_USER || 'scaicedo';
-const mongoPass = process.env.MONGO_PASS || 'jasacr0327';
+const mongoURL = process.env.MONGO_URL || '172.30.61.109';
+const mongoUser = process.env.MONGO_USER || 'efectyws';
+const mongoPass = process.env.MONGO_PASS || 'Passw0rd';
 const mongoDBName = process.env.MONGO_DB_NAME || 'sampledb';
 
 module.exports = function(app){
