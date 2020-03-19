@@ -46,12 +46,12 @@ Para fines practicos, el cluster ya cuenta con un servicio de MongoDB al que pod
 **Nota:** Debe tener en cuenta que el servicio de MongoDB no queda expuesto publicamente, por lo que solo podra realizarse la conexión con este, una vez la aplicacion se encuentre desplegada en el cluster de Openshift
 
 ---
-Una vez igresadas las credenciales, presiones "Next" y luego "Crear", espere unos minutos mientas se aprovisiona su servicio de base de datos MongoDB
+Una vez igresadas las credenciales, presiones "Next" y luego "Create", espere unos minutos mientas se aprovisiona su servicio de base de datos MongoDB
 
 ### 3.	Configure las variables de entorno para la conexión del CRUD con el servicio de MongoDB 🛠️
 ---
 
-**Nota:** La aplicacion CRUD que se encuentra en este repositorio esta configurada con las credenciales proporcionadas para la conección con el servicio que se creo anteriormente, si desea cambiar las credenciales de acceso para hacer la conexión con un servicio diferente, debera descargar y modificar el codigo en la ruta server\conection\mongo.js y cambiar los valores de las credenciales de las siguientes lineas
+**Nota:** La aplicacion CRUD que se encuentra en este repositorio esta configurada con las credenciales proporcionadas para la conexión con el servicio que se creo anteriormente, si desea cambiar las credenciales de acceso para hacer la conexión con un servicio diferente, debera descargar y modificar el codigo en la ruta server\conection\mongo.js y cambiar los valores de las credenciales de las siguientes lineas
 
 ---
 
@@ -80,18 +80,20 @@ const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
 <img width="775" alt="img6" src="https://user-images.githubusercontent.com/40369712/77023847-f238c000-695a-11ea-987b-e40c7bafe08c.png">
 </p>
 
-**d.**
-En este repositorio encontrara las plantillas y el procedimiento para aprovisionar los siguientes recursos:
 
-* **(Infraestructura) Crear subredes en vpc's existentes. [ir](https://github.com/emeloibmco/IBM-Cloud-Provision-Terraform-/tree/master/ibm_is_subnet%20(on%20an%20existing%20vpc))** 🚀
-* **(Infraestructura) Crear una VPC en un grupo de recursos determinado. [ir](https://github.com/emeloibmco/IBM-Cloud-Provision-Terraform-/tree/master/ibm_is_vpc)** 🚀
-* **(Instancia de servicio de Watson Assistant) Crear una instancia de Speech to Text. [ir](https://github.com/emeloibmco/IBM-Cloud-Provision-Terraform-/tree/master/ibm_service_instance%20(speech%20to%20text))** 🚀
-* **(Instancia de servicio VSI) Crear una instancia de servidor virtual en una vpc existente. [ir](https://github.com/emeloibmco/IBM-Cloud-Provision-Terraform-/tree/master/ibm_is_instance%20(VSI))** 🚀
+### 4.	Despliegue de la aplicación CRUD node js 🛠️
 
+**a.** Dirijase al catalogo y seleccione la opcion Node.js
 
+**b.** Una vez seleccionada, presione "Next" y proporciones el nombre de la aplicación, la URL del git donde se encuentra el proyecto a desplegar y presione "Create".
 
-# Referencias 📖
+<p align="center">
+<img width="668" alt="img7" src="https://user-images.githubusercontent.com/40369712/77024355-527c3180-695c-11ea-8f74-d58c9d5c8999.png">
+</p>
 
-* [Documentación oficial IBM Cloud Provider V1.0.0](https://ibm-cloud.github.io/tf-ibm-docs/v1.0.0/)
-* [Automatizar el aprovisionamiento de recursos en la nube con Terraform (Docs IBM)](https://cloud.ibm.com/docs/terraform?topic=terraform-getting-started)
-* [Algunos ejemplos](https://github.com/IBM-Cloud/terraform-provider-ibm/tree/master/examples)
+---
+
+**Nota:** Espere unos mintos mientras el proceso de construcción y despliegue de la aplicación se termina.
+
+---
+
