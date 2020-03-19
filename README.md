@@ -1,3 +1,8 @@
+<p align="center">
+<img width="289" alt="img8" src="https://user-images.githubusercontent.com/40369712/77024696-2f05b680-695d-11ea-82c3-ec06083fd866.png">
+</p>
+
+
 # Despliegue de Mongo BD + node.js CRUD
 
 Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y su conexión con una app crud en node js
@@ -97,3 +102,8 @@ const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
 
 ---
 
+**b.** Una vez terminado el proceso de despliegue puede dirigirse a Overview, donde podra ver la URL mediante la cual podra acceder al CRUD de MongoDB
+
+<p align="center">
+<img width="783" alt="img9" src="https://user-images.githubusercontent.com/40369712/77024952-d682e900-695d-11ea-8724-ffa8b08c8b58.png">
+</p>
