@@ -14,13 +14,14 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 *	Contar con un cluster de Openshift 3.11.
 
 ## Indice :scroll:
+---
 
 * Crear un nuevo proyecto en el cluster de Openshift
 * Aprovisione el servicio Mongo DB en un contenedor de Opeshift
 * Configure las variables de entorno para la conexión del CRUD con el servicio de Mongo DB
 * Despliegue de la aplicación CRUD node.js
 
-
+---
 ### 1. Crear un nuevo proyecto en el cluster de Openshift 🛠️
 
 **a.**	Una vez abierta la consola web de Openshift presione "Create Project" y llene los campos con el nombre y la descripción del proyecto.
