@@ -22,20 +22,26 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 <img width="278" alt="Annotation 2020-03-18 181640" src="https://user-images.githubusercontent.com/40369712/77016805-c57aad80-6946-11ea-83b3-c043412dcba1.png">
 </p>
 
-**b.**  Una vez creado el proyecto, seleccionelo y presione "Browse Catalog"
+**b.**  Presione "Browse Catalog" y seleccione el servicio de MongoDB
 
 <p align="center">
 <img width="790" alt="img2" src="https://user-images.githubusercontent.com/40369712/77017187-c3651e80-6947-11ea-9e32-e45080035016.png">
 </p>
 
-Una vez detro del catalogo podra vez todas las opciones disponibles para el despliegue de aplicaciones y servicios, dentro de estas encontrara MongoDB y MongoDB(Ephemeral) que corresponden a los servicios de datos persistentes y efímeros, seleccione el servicio MongoDB.
+Una vez detro del catalogo podra ver todas las opciones disponibles para el despliegue de aplicaciones y servicios, dentro de estas encontrara MongoDB y MongoDB(Ephemeral) que corresponden a los servicios de datos persistentes y efímeros, seleccione el servicio MongoDB.
 
-**c.**	Extraiga el paquete Terraform y copie el archivo binario en su directorio terraform.
+**c.**	Presione "Next" y proporcione las credenciales de acceso para su servicio de MongoDB.
 
+Para fines practicos, el cluster ya cuenta con un servicio de MongoDB al que podra conectarse si no desea crear uno nuevo, las credenciales de conexión, de este se pueden ver a continuación.
+
+<p align="center">
+<img width="502" alt="img3" src="https://user-images.githubusercontent.com/40369712/77017999-0e803100-694a-11ea-958a-fb7ddc8a9ce0.png">
+</p>
+ 
 ```
-unzip terraform_0.12.19_linux_amd64.zip
-sudo mv terraform $HOME/terraform
+**Nota:** Debe tener en cuenta que el servicio de MongoDB no queda expuesto publicamente, por lo que solo podra realizarse la conexión con este, una vez la aplicacion se encuentre desplegada en el cluster de Openshift
 ```
+Una vez igresadas las credenciales, presiones "Next" y luego "Crear".
 
 **d.**	Apunte la variable de entorno $ PATH a su archivo binario Terraform.
 
