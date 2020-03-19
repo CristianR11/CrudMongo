@@ -1,26 +1,27 @@
 <p align="center">
 <img width="289" alt="img8" src="https://user-images.githubusercontent.com/40369712/77024696-2f05b680-695d-11ea-82c3-ec06083fd866.png">
+ 
+ ## Despliegue de Mongo BD + node.js CRUD
 </p>
 
 
-# Despliegue de Mongo BD + node.js CRUD
+Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y su conexión con una app crud en node.js
 
-Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y su conexión con una app crud en node js
+## Requerimentos para la ejecucion de la guia :pushpin:
 
-## Requerimentos para la ejecucion de la guia
 
 *	Tener una cuenta de IBM Cloud.
 *	Contar con un cluster de Openshift 3.11.
 
-## Indice
+## Indice :scroll:
 
 * Crear un nuevo proyecto en el cluster de Openshift
 * Aprovisione el servicio Mongo DB en un contenedor de Opeshift
 * Configure las variables de entorno para la conexión del CRUD con el servicio de Mongo DB
-* Despliegue de la aplicación CRUD node js
+* Despliegue de la aplicación CRUD node.js
 
 
-### 1. Crear un nuevo proyecto en el cluster de Openshift
+### 1. Crear un nuevo proyecto en el cluster de Openshift 🛠️
 
 **a.**	Una vez abierta la consola web de Openshift presione "Create Project" y llene los campos con el nombre y la descripción del proyecto.
 
@@ -28,7 +29,7 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 <img width="278" alt="Annotation 2020-03-18 181640" src="https://user-images.githubusercontent.com/40369712/77016805-c57aad80-6946-11ea-83b3-c043412dcba1.png">
 </p>
 
-### 2. Aprovisione el servicio Mongo DB en un contenedor de Opeshift
+### 2. Aprovisione el servicio Mongo DB en un contenedor de Opeshift 🛠️
 
 **a.**  Seleccione el proyecto que acabe de crear, presione "Browse Catalog" y seleccione el servicio de MongoDB.
 
@@ -86,7 +87,7 @@ const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
 </p>
 
 
-### 4.	Despliegue de la aplicación CRUD node js 🛠️
+### 4.	Despliegue de la aplicación CRUD node.js 🛠️
 
 **a.** Dirijase al catalogo y seleccione la opcion Node.js
 
