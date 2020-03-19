@@ -1,4 +1,5 @@
 # Despliegue de Mongo BD + node.js CRUD
+
 Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y su conexión con una app crud en node js
 
 ## Requerimentos para la ejecucion de la guia
@@ -47,7 +48,7 @@ Para fines practicos, el cluster ya cuenta con un servicio de MongoDB al que pod
 ---
 Una vez igresadas las credenciales, presiones "Next" y luego "Crear", espere unos minutos mientas se aprovisiona su servicio de base de datos MongoDB
 
-### 3.	Configure las variables de entorno para la conexión del CRUD con el servicio de Mongo DB 🛠️
+### 3.	Configure las variables de entorno para la conexión del CRUD con el servicio de MongoDB 🛠️
 ---
 
 **Nota:** La aplicacion CRUD que se encuentra en este repositorio esta configurada con las credenciales proporcionadas para la conección con el servicio que se creo anteriormente, si desea cambiar las credenciales de acceso para hacer la conexión con un servicio diferente, debera descargar y modificar el codigo en la ruta server\conection\mongo.js y cambiar los valores de las credenciales de las siguientes lineas
@@ -61,84 +62,25 @@ const mongoPass = process.env.MONGO_PASS || 'Password';
 const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
 ```
 
-**a.** 
-**b.**	
-**c.**	
-**d.**	Ingrese a la carpeta occulta y verifique que la instalación se haya terminado
+**a.** Para saber la Ip del pod donde se ha desplegado el servicio de MongoDB para el despliegue, dirijase a Applications -> Deployments -> mongodb y vera una pantalla como la siguiente, seleccione el numero del ultimo despliegue realizado.
 
-```
-cd $HOME/.terraform.d/plugins && ./terraform-provider-ibm_*
-```
-Vera una salida como la siguiente:
+<p align="center">
+<img width="778" alt="img4" src="https://user-images.githubusercontent.com/40369712/77023613-5909a980-695a-11ea-8cbf-632c363c5353.png">
+</p>
+ 
+**b.**	Dirijase al final de la pagina y seleccione el nombre del pod donde se ha desplegado el servicio.
 
-```
-2020/01/14 06:59:57 IBM Cloud Provider version 1.0.0  
-This binary is a plugin. These are not meant to be executed directly.
-Please execute the program that consumes these plugins, which will
-load any plugins automatically
-```
-### 3.	Configure el complemento plug-in de IBM Cloud Provider 🛠️
+<p align="center">
+<img width="773" alt="img5" src="https://user-images.githubusercontent.com/40369712/77023743-b30a6f00-695a-11ea-89e0-612636db6b98.png">
+</p>
 
-**a.**	Cree una carpeta en su máquina local para su primer proyecto Terraform y navegue hacia la carpeta. Esta carpeta se utiliza para almacenar todos los archivos de configuración y definiciones de variables.
+**c.**	Identifique la Ip del pod, la cual debera ser asignada en la configuración de la conexión de la aplicación.
 
-```
-cd $HOME
-mkdir myproject && cd myproject
-```
-**b.**  [Cree un API Key de IBM Cloud](https://cloud.ibm.com/docs/iam?topic=iam-classic_keys&locale=es) para aprovisionar la instancia de servidor virtual VPC.
+<p align="center">
+<img width="775" alt="img6" src="https://user-images.githubusercontent.com/40369712/77023847-f238c000-695a-11ea-987b-e40c7bafe08c.png">
+</p>
 
-**c.**  [Genere una llave SSH.](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-ssh-keys&locale=es) La llave SSH es requerida para aprovisionar la instancia de servidor virtual VPC y puede usarla para acceder a su instancia via SSH. Luego de crear su llave SSH, asegúrese de [cargarla en su cuenta de IBM Cloud.](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-ssh-keys&locale=es#managing-ssh-keys-with-ibm-cloud-console)
-
-**d.**  [Recupere su nombre de usuario y API Key de infraestructura clásica de IBM Cloud.](https://cloud.ibm.com/docs/iam?topic=iam-classic_keys&locale=es) Usted usara estas credenciales para aprovisionar la instancia de servidor virtual en su cuenta de IBM Cloud.
-
-**e.**	Cree un archivo de configuración de Terraform que se llame terraform.tfvars para almacenar sus credenciales de infraestructura clásicas de IBM Cloud y la clave API de IBM Cloud. Asegúrese de guardar este archivo en la carpeta que creó para su primer proyecto Terraform. Terraform carga automáticamente las variables definidas en el archivo terraform.tfvars cuando se inicializa la CLI de Terraform y puede hacer referencia a ellas en cada archivo de configuración de Terraform que utilice.
-
-```
-cd $HOME/myproject
-touch terraform.tfvars
-```
-
-Edite este archivo de configuración con la siguiente información para cargar los valores a las variables de configuración.
-📄
-```
-iaas_classic_username = "<classic_infrastructure_username>"
-iaas_classic_api_key =  "<classic_infrastructure_apikey>"
-ibmcloud_api_key = " <ibmcloud_api_key>"
-ssh_key = "<name_of-publick_key>"
-```
-
-A modo de ejemplo puede editar el archivo terraform.tfvars con el siguiente comando.
-
-```
-vi terraform.tfvars
-```
-
-
-**f.**	Cree un archivo de configuración de Terraform que se llame provider.tf
-
-Utilice este archivo para configurar el complemento de IBM Cloud Provider con las credenciales de su archivo terraform.tfvars para que el complemento pueda acceder y aprovisionar recursos de IBM Cloud. Para hacer referencia a una variable del archivo terraform.tfvars, use la sintaxis _var.<variable_name>.
-
- 📄
-``` 
-variable "iaas_classic_username" { }
-variable "iaas_classic_api_key" { }
-variable "ibmcloud_api_key" { }
-
-provider "ibm" {
-  iaas_classic_username = var.iaas_classic_username
-  iaas_classic_api_key  = var.iaas_classic_api_key
-  ibmcloud_api_key	= var.ibmcloud_api_key
-  generation	= 1
-  región = "us-south"
-}
-```
-
-**g.**	Inicialice Terraform
-
-```
-terraform init
-```
-
+**d.**
 En este repositorio encontrara las plantillas y el procedimiento para aprovisionar los siguientes recursos:
 
 * **(Infraestructura) Crear subredes en vpc's existentes. [ir](https://github.com/emeloibmco/IBM-Cloud-Provision-Terraform-/tree/master/ibm_is_subnet%20(on%20an%20existing%20vpc))** 🚀
