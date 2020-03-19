@@ -56,20 +56,14 @@ Para fines practicos, el cluster ya cuenta con un servicio de MongoDB al que pod
 Una vez igresadas las credenciales, presiones "Next" y luego "Create", espere unos minutos mientas se aprovisiona su servicio de base de datos MongoDB
 
 ### 3.	Configure las variables de entorno para la conexión del CRUD con el servicio de MongoDB 🛠️
----
-
-**Nota:** La aplicacion CRUD que se encuentra en este repositorio esta configurada con las credenciales proporcionadas para la conexión con el servicio que se creo anteriormente, si desea cambiar las credenciales de acceso para hacer la conexión con un servicio diferente, debera descargar y modificar el codigo en la ruta server\conection\mongo.js y cambiar los valores de las credenciales de las siguientes lineas
 
 ---
 
-```
-const mongoURL = process.env.MONGO_URL || 'Ip_del_pod';
-const mongoUser = process.env.MONGO_USER || 'mongo_user_name';
-const mongoPass = process.env.MONGO_PASS || 'Password';
-const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
-```
+Antes de modificar el archivo de conexión de la aplicación, es necesario conocer la IP del pod donde se ha desplegado el servicio de la base de datos para eso podemos seguir los siguientes pasos:
 
-**a.** Para saber la Ip del pod donde se ha desplegado el servicio de MongoDB para el despliegue, dirijase a Applications -> Deployments -> mongodb y vera una pantalla como la siguiente, seleccione el numero del ultimo despliegue realizado.
+---
+
+**a.** Dirijase a Applications -> Deployments -> mongodb y vera una pantalla como la siguiente, seleccione el numero del ultimo despliegue realizado.
 
 <p align="center">
 <img width="778" alt="img4" src="https://user-images.githubusercontent.com/40369712/77023613-5909a980-695a-11ea-8cbf-632c363c5353.png">
@@ -87,6 +81,29 @@ const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
 <img width="775" alt="img6" src="https://user-images.githubusercontent.com/40369712/77023847-f238c000-695a-11ea-987b-e40c7bafe08c.png">
 </p>
 
+
+---
+
+**Nota:** La aplicacion CRUD que se encuentra en este repositorio esta configurada con las credenciales proporcionadas para la conexión con el servicio que se creo anteriormente, si desea cambiar las credenciales de acceso para hacer la conexión con un servicio diferente, debera descargar y modificar el codigo en la ruta server\conection\mongo.js y cambiar los valores de las credenciales de las siguientes lineas
+
+Para esto puede seguir los siguientes pasos:
+
+**I.** Clone este repositorio desde la pagina web como un **.ZIP** o desde la linea de comandos ejecutando:
+
+```
+git clone https://github.com/CristianR11/CrudMongo
+```
+
+**II.** Ingrese a la ruta antes mencionada ./server/conection y edite el archivo mongo.js, allí encontrara las siguientes lineas, donde debera agregar las credenciales de conexión para el servicio MongoDB
+
+```
+const mongoURL = process.env.MONGO_URL || '<Ip_del_pod>';
+const mongoUser = process.env.MONGO_USER || '<mongo_user_name>';
+const mongoPass = process.env.MONGO_PASS || '<Password>';
+const mongoDBName = process.env.MONGO_DB_NAME || '<mongo_db_name>';
+```
+
+---
 
 ### 4.	Despliegue de la aplicación CRUD node.js 🛠️
 
