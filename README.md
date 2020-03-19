@@ -10,7 +10,7 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 
 * Crear un nuevo proyecto en el cluster de Openshift
 * Aprovisione el servicio Mongo DB en un contenedor de Opeshift
-* Configure las variables de entorno para la conección del CRUD con el servicio de Mongo DB
+* Configure las variables de entorno para la conexión del CRUD con el servicio de Mongo DB
 * Despliegue de la aplicación CRUD node js
 
 
@@ -22,7 +22,9 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 <img width="278" alt="Annotation 2020-03-18 181640" src="https://user-images.githubusercontent.com/40369712/77016805-c57aad80-6946-11ea-83b3-c043412dcba1.png">
 </p>
 
-**b.**  Presione "Browse Catalog" y seleccione el servicio de MongoDB
+### 2. Aprovisione el servicio Mongo DB en un contenedor de Opeshift
+
+**a.**  Seleccione el proyecto que acabe de crear, presione "Browse Catalog" y seleccione el servicio de MongoDB.
 
 <p align="center">
 <img width="790" alt="img2" src="https://user-images.githubusercontent.com/40369712/77017187-c3651e80-6947-11ea-9e32-e45080035016.png">
@@ -30,7 +32,7 @@ Laboratorio para el aprovisionamiento de un servicio persistente de Mongo DB y s
 
 Una vez detro del catalogo podra ver todas las opciones disponibles para el despliegue de aplicaciones y servicios, dentro de estas encontrara MongoDB y MongoDB(Ephemeral) que corresponden a los servicios de datos persistentes y efímeros, seleccione el servicio MongoDB.
 
-**c.**	Presione "Next" y proporcione las credenciales de acceso para su servicio de MongoDB.
+**b.**	Presione "Next" y proporcione las credenciales de acceso para su servicio de MongoDB.
 
 Para fines practicos, el cluster ya cuenta con un servicio de MongoDB al que podra conectarse si no desea crear uno nuevo, las credenciales de conexión, de este se pueden ver a continuación.
 
@@ -38,46 +40,30 @@ Para fines practicos, el cluster ya cuenta con un servicio de MongoDB al que pod
 <img width="502" alt="img3" src="https://user-images.githubusercontent.com/40369712/77017999-0e803100-694a-11ea-958a-fb7ddc8a9ce0.png">
 </p>
  
-```
+---
+
 **Nota:** Debe tener en cuenta que el servicio de MongoDB no queda expuesto publicamente, por lo que solo podra realizarse la conexión con este, una vez la aplicacion se encuentre desplegada en el cluster de Openshift
-```
-Una vez igresadas las credenciales, presiones "Next" y luego "Crear".
 
-**d.**	Apunte la variable de entorno $ PATH a su archivo binario Terraform.
+---
+Una vez igresadas las credenciales, presiones "Next" y luego "Crear", espere unos minutos mientas se aprovisiona su servicio de base de datos MongoDB
 
-```
-export PATH=$PATH:$HOME/terraform
-```
-**e.**	Verifique que la instalación sea exitosa
+### 3.	Configure las variables de entorno para la conexión del CRUD con el servicio de Mongo DB 🛠️
+---
 
-```
-Terraform --version
-```
-Vera una salida de consola como la siguiente:
-```
-Terraform v0.12.19
-```
-### 2.	Instale el complemento IBM Cloud Provider 🛠️
+**Nota:** La aplicacion CRUD que se encuentra en este repositorio esta configurada con las credenciales proporcionadas para la conección con el servicio que se creo anteriormente, si desea cambiar las credenciales de acceso para hacer la conexión con un servicio diferente, debera descargar y modificar el codigo en la ruta server\conection\mongo.js y cambiar los valores de las credenciales de las siguientes lineas
 
-**a.** [Descargue la versión v1.0.0 del archivo binario de IBM Cloud Provider.](https://github.com/IBM-Cloud/terraform-provider-ibm/releases)
-
-Ingrese a la carpeta de descargas y extraiga el archivo binario del plug-in, para el caso particular se ha descargado la versión para Linux de 64 bits.
+---
 
 ```
-cd $HOME/Downloads
-unzip linux_amd64.zip
+const mongoURL = process.env.MONGO_URL || 'Ip_del_pod';
+const mongoUser = process.env.MONGO_USER || 'mongo_user_name';
+const mongoPass = process.env.MONGO_PASS || 'Password';
+const mongoDBName = process.env.MONGO_DB_NAME || 'mongo_db_name';
 ```
 
-**b.**	Cree una carpeta oculta para su complemento.
-
-```
-mkdir $HOME/.terraform.d/plugins
-```
-**c.**	Mueva el complemento de IBM Cloud Provider plug-in en la carpeta oculta que acaba de crear
-
-```
-mv $HOME/Downloads/terraform-provider-ibm* $HOME/.terraform.d/plugins/
-```
+**a.** 
+**b.**	
+**c.**	
 **d.**	Ingrese a la carpeta occulta y verifique que la instalación se haya terminado
 
 ```
